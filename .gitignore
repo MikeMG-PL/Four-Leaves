@@ -9,6 +9,7 @@
 .idea/shelf/*
 .idea/dictionaries
 .idea/httpRequests/
+.idea/
 
 # Sensitive or high-churn files
 .idea/**/dataSources/
@@ -112,3 +113,6 @@ Plugins/Developer/*/Intermediate/*
 # Cache files for the editor to use
 DerivedDataCache/*
 .idea/.idea.FPSEscapeRoom/.idea/vcs.xml
+.idea/.idea.ThePowerOfFourLeaves/.idea/vcs.xml
+.idea/.idea.ThePowerOfFourLeaves/.idea/indexLayout.xml
+.idea/.idea.ThePowerOfFourLeaves/.idea/discord.xml
