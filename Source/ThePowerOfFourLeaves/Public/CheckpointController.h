@@ -44,8 +44,6 @@ private:
 	UFUNCTION()
 	void OnCheckpointOverlapBegin(class UPrimitiveComponent* OverlappedComp, class AActor* OtherActor, class UPrimitiveComponent* OtherComp, int32 OtherBodyIndex, bool bFromSweep, const FHitResult& SweepResult);
 
-	float Time = 5.f;
-
 	UPROPERTY()
 	AThePowerOfFourLeavesCharacter* PlayerCharacter;
 
