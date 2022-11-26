@@ -105,8 +105,7 @@ void AThePowerOfFourLeavesCharacter::Look(const FInputActionValue& Value)
 
 void AThePowerOfFourLeavesCharacter::Dash(const FInputActionValue& Value)
 {
-	GetCharacterMovement()->MaxWalkSpeed = 1000;
-	AddMovementInput(GetActorForwardVector(), 1);
+	
 }
 
 void AThePowerOfFourLeavesCharacter::SetHasRifle(bool bNewHasRifle)
