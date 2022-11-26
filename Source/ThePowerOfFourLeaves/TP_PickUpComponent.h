@@ -4,12 +4,12 @@
 
 #include "CoreMinimal.h"
 #include "Components/SphereComponent.h"
-#include "ThePowerOfFourLeavesCharacter.h"
+#include "TP_ThirdPerson/TP_ThirdPersonCharacter.h"
 #include "TP_PickUpComponent.generated.h"
 
 // Declaration of the delegate that will be called when someone picks this up
 // The character picking this up is the parameter sent with the notification
-DECLARE_DYNAMIC_MULTICAST_DELEGATE_OneParam(FOnPickUp, AThePowerOfFourLeavesCharacter*, PickUpCharacter);
+DECLARE_DYNAMIC_MULTICAST_DELEGATE_OneParam(FOnPickUp, ATP_ThirdPersonCharacter*, PickUpCharacter);
 
 UCLASS(Blueprintable, BlueprintType, ClassGroup = (Custom), meta = (BlueprintSpawnableComponent))
 class THEPOWEROFFOURLEAVES_API UTP_PickUpComponent : public USphereComponent

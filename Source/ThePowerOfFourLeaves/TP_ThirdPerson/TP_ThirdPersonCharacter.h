@@ -31,7 +31,6 @@ class ATP_ThirdPersonCharacter : public ACharacter
 
 public:
 	ATP_ThirdPersonCharacter();
-	
 
 protected:
 

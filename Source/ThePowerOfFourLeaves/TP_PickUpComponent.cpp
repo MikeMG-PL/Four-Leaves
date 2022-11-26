@@ -19,8 +19,8 @@ void UTP_PickUpComponent::BeginPlay()
 void UTP_PickUpComponent::OnSphereBeginOverlap(UPrimitiveComponent* OverlappedComponent, AActor* OtherActor, UPrimitiveComponent* OtherComp, int32 OtherBodyIndex, bool bFromSweep, const FHitResult& SweepResult)
 {
 	// Checking if it is a First Person Character overlapping
-	AThePowerOfFourLeavesCharacter* Character = Cast<AThePowerOfFourLeavesCharacter>(OtherActor);
-	if(Character != nullptr)
+	ATP_ThirdPersonCharacter* Character = Cast<ATP_ThirdPersonCharacter>(OtherActor);
+	if (Character != nullptr)
 	{
 		// Notify that the actor is being picked up
 		OnPickUp.Broadcast(Character);

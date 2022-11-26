@@ -2,7 +2,7 @@
 
 
 #include "TP_WeaponComponent.h"
-#include "ThePowerOfFourLeavesCharacter.h"
+#include "TP_ThirdPerson/TP_ThirdPersonCharacter.h"
 #include "ThePowerOfFourLeavesProjectile.h"
 #include "GameFramework/PlayerController.h"
 #include "Camera/PlayerCameraManager.h"
@@ -55,7 +55,7 @@ void UTP_WeaponComponent::Fire()
 	if (FireAnimation != nullptr)
 	{
 		// Get the animation object for the arms mesh
-		UAnimInstance* AnimInstance = Character->GetMesh1P()->GetAnimInstance();
+		UAnimInstance* AnimInstance = Character->GetMesh()->GetAnimInstance();
 		if (AnimInstance != nullptr)
 		{
 			AnimInstance->Montage_Play(FireAnimation, 1.f);
@@ -63,7 +63,7 @@ void UTP_WeaponComponent::Fire()
 	}
 }
 
-void UTP_WeaponComponent::AttachWeapon(AThePowerOfFourLeavesCharacter* TargetCharacter)
+void UTP_WeaponComponent::AttachWeapon(ATP_ThirdPersonCharacter* TargetCharacter)
 {
 	Character = TargetCharacter;
 	if (Character == nullptr)
@@ -73,10 +73,10 @@ void UTP_WeaponComponent::AttachWeapon(AThePowerOfFourLeavesCharacter* TargetCha
 
 	// Attach the weapon to the First Person Character
 	FAttachmentTransformRules AttachmentRules(EAttachmentRule::SnapToTarget, true);
-	AttachToComponent(Character->GetMesh1P(), AttachmentRules, FName(TEXT("GripPoint")));
+	AttachToComponent(Character->GetMesh(), AttachmentRules, FName(TEXT("gunSocket")));
 	
 	// switch bHasRifle so the animation blueprint can switch to another animation set
-	Character->SetHasRifle(true);
+	//Character->SetHasRifle(true);
 
 	// Set up action bindings
 	if (APlayerController* PlayerController = Cast<APlayerController>(Character->GetController()))
