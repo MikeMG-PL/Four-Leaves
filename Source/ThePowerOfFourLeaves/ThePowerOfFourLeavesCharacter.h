@@ -39,6 +39,10 @@ class AThePowerOfFourLeavesCharacter : public ACharacter
 	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category=Input, meta=(AllowPrivateAccess = "true"))
 	class UInputAction* MoveAction;
 
+	/** Dash Input Action */
+	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category=Input, meta=(AllowPrivateAccess = "true"))
+	class UInputAction* DashAction;
+
 	
 public:
 	AThePowerOfFourLeavesCharacter();
@@ -70,6 +74,8 @@ protected:
 
 	/** Called for looking input */
 	void Look(const FInputActionValue& Value);
+
+	void Dash(const FInputActionValue& Value);
 
 protected:
 	// APawn interface

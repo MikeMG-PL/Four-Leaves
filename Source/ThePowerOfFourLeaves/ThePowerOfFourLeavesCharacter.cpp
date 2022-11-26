@@ -7,6 +7,7 @@
 #include "Components/CapsuleComponent.h"
 #include "EnhancedInputComponent.h"
 #include "EnhancedInputSubsystems.h"
+#include "GameFramework/CharacterMovementComponent.h"
 
 
 //////////////////////////////////////////////////////////////////////////
@@ -69,6 +70,9 @@ void AThePowerOfFourLeavesCharacter::SetupPlayerInputComponent(class UInputCompo
 
 		//Looking
 		EnhancedInputComponent->BindAction(LookAction, ETriggerEvent::Triggered, this, &AThePowerOfFourLeavesCharacter::Look);
+
+		//Dashing
+		EnhancedInputComponent->BindAction(DashAction, ETriggerEvent::Triggered, this, &AThePowerOfFourLeavesCharacter::Dash);
 	}
 }
 
@@ -97,6 +101,12 @@ void AThePowerOfFourLeavesCharacter::Look(const FInputActionValue& Value)
 		AddControllerYawInput(LookAxisVector.X);
 		AddControllerPitchInput(LookAxisVector.Y);
 	}
+}
+
+void AThePowerOfFourLeavesCharacter::Dash(const FInputActionValue& Value)
+{
+	GetCharacterMovement()->MaxWalkSpeed = 1000;
+	AddMovementInput(GetActorForwardVector(), 1);
 }
 
 void AThePowerOfFourLeavesCharacter::SetHasRifle(bool bNewHasRifle)
