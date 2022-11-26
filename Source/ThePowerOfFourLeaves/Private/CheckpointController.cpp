@@ -34,6 +34,8 @@ void ACheckpointController::BeginPlay()
 		return;
 	}
 
+	LastSavedPosition = PlayerCharacter->GetActorLocation();
+
 	for (const AActor* Checkpoint : Checkpoints)
 	{
 		UBoxComponent* Collider = Checkpoint->FindComponentByClass<UBoxComponent>();
@@ -59,13 +61,6 @@ void ACheckpointController::Tick(float DeltaTime)
 {
 	Super::Tick(DeltaTime);
 
-	Time -= DeltaTime;
-
-	if (Time < 0.f)
-	{
-		Time = 5.f;
-		Cast<ULifeComponent>(PlayerCharacter->GetComponentByClass(ULifeComponent::StaticClass()))->CurrentNumberOfLifes = 0;
-	}
 }
 
 void ACheckpointController::OnPlayerRespawn()
